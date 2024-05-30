@@ -132,7 +132,7 @@ const EmployeeDetail = () => {
                       <td>{request.reason}</td>
                       <td>
                         <Link
-                          to={`http://localhost:5173/EmpDashboard/LeaveReq/${id}`}
+                          to={`https://main--staffsphere.netlify.app/EmpDashboard/LeaveReq/${id}`}
                           className="btn btn-danger p-2"
                         >
                           Manage

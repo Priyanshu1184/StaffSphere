@@ -21,7 +21,7 @@ app.use(express.static('Public'))
 app.use(cors({
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true,
-    origin: "http://localhost:5173", // Update with your frontend URL
+    origin: "https://main--staffsphere.netlify.app", // Update with your frontend URL
 }));
 
 
