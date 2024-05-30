@@ -27,7 +27,7 @@ const UpdateEmployee = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/employee/' + id)
+        axios.get('https://staffsphere.onrender.com/employee/' + id)
             .then(result => {
                 const data = result.data.Result[0];
                 setEmployee({
@@ -58,7 +58,7 @@ const UpdateEmployee = () => {
             delete updatedEmployee.password; // Remove the password field if it's empty
         }
 
-        axios.put('http://localhost:8000/edit_employee/' + id, updatedEmployee)
+        axios.put('https://staffsphere.onrender.com/edit_employee/' + id, updatedEmployee)
             .then(result => {
                 if (result.data.Status) {
                     navigate("/EmpDashboard/employee_detail/" + id);

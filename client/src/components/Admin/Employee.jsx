@@ -56,7 +56,7 @@ const Employee = () => {
                   <td>{employee.name}</td>
                   <td>
                     <img
-                      src={`http://localhost:8000/images/${employee.image}`}
+                      src={`https://staffsphere.onrender.com/images/${employee.image}`}
                       alt={employee.name}
                       className="employee-image "
                       style={{ maxWidth: "100px", height: "100px" }}

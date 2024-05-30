@@ -8,7 +8,7 @@ const Start = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://localhost:8000/verify')
+    axios.get('https://staffsphere.onrender.com/verify')
     .then(result => {
       if(result.data.Status) {
         if(result.data.role === "admin") {

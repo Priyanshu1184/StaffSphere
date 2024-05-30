@@ -120,7 +120,7 @@ const EmpDashboard = () => {
           <div className="p-2 card card-centered shadow align-items-center">
             <div className="d-flex justify-content-between align-items-center" style={{ marginLeft: "250px",position:"sticky" }}>
             <img
-                src={`http://localhost:8000/images/${employee.image}`}
+                src={`https://staffsphere.onrender.com/images/${employee.image}`}
                 alt="Employee"
                 className="employee_image"
               />
