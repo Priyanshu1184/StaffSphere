@@ -20,7 +20,9 @@ You can visit the live version of the website at [StaffSphere](https://main--sta
 - **Update Details**: Employees can update their personal details.
 - **Check Events**: Employees can view events created by the admin.
 
-## **Installation**
+## **Installation for Local Hosting**
+
+If you want to host the project on your local device, follow these steps:
 
 ### **Backend (Node.js)**
 
@@ -42,7 +44,32 @@ You can visit the live version of the website at [StaffSphere](https://main--sta
       npx sequelize-cli db:seed:all
       ```
 
-4. **Start the server**:
+4. **Update CORS settings**:
+    Modify the CORS settings in your server configuration to allow requests from your local development server. For example, in an Express.js server:
+    ```javascript
+    const express = require('express');
+    const cors = require('cors');
+    const app = express();
+
+    const allowedOrigins = ['http://localhost:5173', 'https://main--staffsphere.netlify.app'];
+
+    app.use(cors({
+        origin: function(origin, callback){
+            if(!origin) return callback(null, true);
+            if(allowedOrigins.indexOf(origin) === -1){
+                const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+                return callback(new Error(msg), false);
+            }
+            return callback(null, true);
+        }
+    }));
+
+    app.listen(3000, () => {
+        console.log('Server is running on port 3000');
+    });
+    ```
+
+5. **Start the server**:
     ```bash
     npm start
     ```
