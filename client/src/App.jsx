@@ -61,12 +61,12 @@ function App() {
           </Route>
 
           <Route path='/EmpDashboard' element={<EmpDashboard />} >
-            <Route path='employee_detail/:id' element={<EmployeeDetail />} />
-            <Route path='employee_update/:id' element={<UpdateEmployee />} />
-            <Route path='LeaveReq/:id' element={<LeaveReq />} ></Route>
-            <Route path='EmpHisory/:id' element={<EmpHistory />} />
-            <Route path='EventSchedule/:id' element={<EventSchedule />} />
-            <Route path='TrainingModules/:id' element={<ModuleDashboard />} />
+            <Route path='/employee_detail/:id' element={<EmployeeDetail />} />
+            <Route path='/employee_update/:id' element={<UpdateEmployee />} />
+            <Route path='/LeaveReq/:id' element={<LeaveReq />} ></Route>
+            <Route path='/EmpHisory/:id' element={<EmpHistory />} />
+            <Route path='/EventSchedule/:id' element={<EventSchedule />} />
+            <Route path='/TrainingModules/:id' element={<ModuleDashboard />} />
           </Route>
 
         </Routes>
