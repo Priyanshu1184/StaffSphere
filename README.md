@@ -3,6 +3,9 @@
 ## **Overview**
 This HR system is designed to manage various HR functions efficiently. The system has two main roles: Admin and Employee. The Admin side is responsible for managing events, leave requests, employees, and payroll (the payroll functionality is under development). The Employee side allows employees to manage their history, request leaves, update their details, and check events.
 
+## Live Demo
+You can visit the live version of the website at [StaffSphere](https://main--staffsphere.netlify.app/).
+
 ## **Features**
 
 ### **Admin Side**
