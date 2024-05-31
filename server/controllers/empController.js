@@ -87,7 +87,7 @@ const empHistory=async (req,res)=>{
 
 const getempHistory=async(req,res)=>{
     const id=req.params.id
-    const user=await HisotryModel.find({empid:id})
+    const user=await HisotryModel.find({userId:id})
     return res.json({ Status: true, Result: user });
 }
 
