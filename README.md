@@ -3,6 +3,9 @@
 ## **Overview**
 This HR system is designed to manage various HR functions efficiently. The system has two main roles: Admin and Employee. The Admin side is responsible for managing events, leave requests, employees, and payroll (the payroll functionality is under development). The Employee side allows employees to manage their history, request leaves, update their details, and check events.
 
+## Live Demo
+You can visit the live version of the website at [StaffSphere](https://main--staffsphere.netlify.app/).
+
 ## **Features**
 
 ### **Admin Side**
@@ -17,7 +20,9 @@ This HR system is designed to manage various HR functions efficiently. The syste
 - **Update Details**: Employees can update their personal details.
 - **Check Events**: Employees can view events created by the admin.
 
-## **Installation**
+## **Installation for Local Hosting**
+
+If you want to host the project on your local device, follow these steps:
 
 ### **Backend (Node.js)**
 
@@ -32,14 +37,41 @@ This HR system is designed to manage various HR functions efficiently. The syste
     ```
 
 3. **Set up the database**:
-    - Configure your database settings in `config/database.js`.
-    - Run migrations and seeders if necessary:
-      ```bash
-      npx sequelize-cli db:migrate
-      npx sequelize-cli db:seed:all
-      ```
+    - Configure your database settings in `models/user.js`.
 
-4. **Start the server**:
+4. **Update CORS settings**:
+    Modify the CORS settings in your server configuration to allow requests from your local development server. For example, in an Express.js server:
+    ```javascript
+    const express = require('express');
+    const cors = require('cors');
+    const app = express();
+
+    const allowedOrigins = ['http://localhost:5173', 'https://main--staffsphere.netlify.app'];
+
+    app.use(cors({
+        origin: function(origin, callback){
+            if(!origin) return callback(null, true);
+            if(allowedOrigins.indexOf(origin) === -1){
+                const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+                return callback(new Error(msg), false);
+            }
+            return callback(null, true);
+        }
+    }));
+
+    app.listen(8000, () => {
+        console.log('Server is running on port 8000');
+    });
+    ```
+
+5. **Create a `.env` file**:
+    - Add your MongoDB URL and secret key in the `.env` file located in the root of the server directory. Example:
+    ```env
+    MONGODB_URL=your_mongodb_url
+    SECRET_KEY=your_secret_key
+    ```
+
+6. **Start the server**:
     ```bash
     npm start
     ```
@@ -83,10 +115,6 @@ From the admin dashboard, you can create employee accounts by providing the nece
 ## 4. Employee Login
 
 Employees can log in to the system using the credentials provided by the admin. They can access their profiles, view assigned training modules, mark modules as completed, and perform other tasks related to their training.
-
-## **Additional Information**
-
-For any further assistance or troubleshooting, please refer to the documentation or contact the system administrator.
 
 ## **Usage**
 
@@ -133,4 +161,4 @@ For any further assistance or troubleshooting, please refer to the documentation
 5. Open a pull request.
 
 ## **Contact**
-For any inquiries or feedback, please contact [your-email@example.com].
+For any inquiries or feedback, please contact [sahoopriyanshu1184@gmail.com].
